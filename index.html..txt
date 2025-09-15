@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bazar Buddy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: #333; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; }
+
+        /* Header */
+        header { background: #FF6F00; color: white; padding: 20px 0; position: sticky; top: 0; z-index: 1000; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav li { font-weight: bold; transition: 0.3s; }
+        nav li:hover { transform: scale(1.1); }
+
+        /* Hero Section */
+        .hero { background: url('https://source.unsplash.com/1600x600/?business,marketing') center/cover no-repeat; height: 600px; display: flex; align-items: center; justify-content: center; color: white; text-align: center; position: relative; }
+        .hero::after { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.4); }
+        .hero div { position: relative; z-index: 1; animation: fadeInDown 1.5s ease forwards; opacity: 0; }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; }
+        .hero .btn { background: #43A047; padding: 12px 25px; border-radius: 5px; color: white; font-weight: bold; transition: 0.3s; }
+        .hero .btn:hover { background: #2E7D32; transform: scale(1.05); }
+
+        /* Sections */
+        section { padding: 80px 0; opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+        section.visible { opacity: 1; transform: translateY(0); }
+        .section-title { text-align: center; font-size: 2rem; margin-bottom: 40px; color: #FF6F00; }
+
+        /* About Section */
+        .about { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+        .about img { flex: 1; border-radius: 10px; }
+        .about .about-text { flex: 2; }
+        .about .about-text p { margin-bottom: 20px; }
+
+        /* Services */
+        .services { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
+        .service-card { background: #f9f9f9; padding: 30px; border-radius: 10px; flex: 1 1 250px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; }
+        .service-card:hover { transform: translateY(-10px) scale(1.05); box-shadow: 0 8px 12px rgba(0,0,0,0.2); }
+        .service-card h3 { margin-bottom: 15px; color: #FF6F00; }
+
+        /* Pricing */
+        .pricing { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
+        .pricing-card { background: #fff3e0; padding: 30px; border-radius: 10px; flex: 1 1 250px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; }
+        .pricing-card:hover { transform: scale(1.05); box-shadow: 0 8px 12px rgba(0,0,0,0.2); }
+        .pricing-card h3 { margin-bottom: 15px; color: #FF6F00; }
+        .pricing-card .price { font-size: 2rem; margin-bottom: 20px; }
+        .pricing-card .btn { background: #FF6F00; padding: 10px 20px; border-radius: 5px; color: white; font-weight: bold; transition: 0.3s; }
+        .pricing-card .btn:hover { background: #e65100; transform: scale(1.05); }
+
+        /* Contact */
+        .contact form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+        .contact input, .contact textarea { padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+        .contact button { background: #43A047; padding: 15px; border: none; color: white; font-weight: bold; border-radius: 5px; cursor: pointer; transition: 0.3s; }
+        .contact button:hover { background: #2E7D32; transform: scale(1.05); }
+
+        /* Footer */
+        footer { background: #333; color: white; text-align: center; padding: 20px 0; }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @media(max-width: 768px){
+            .about { flex-direction: column; text-align: center; }
+            nav ul { flex-direction: column; gap: 10px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <h2>Bazar Buddy</h2>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div>
+        <h1>Welcome to Bazar Buddy</h1>
+        <p>Your smart companion for local market deals and shopping insights.</p>
+        <a href="#services" class="btn">Get Started</a>
+    </div>
+</section>
+
+<section id="about" class="about container">
+    <img src="https://source.unsplash.com/600x400/?market,shopping" alt="About Bazar Buddy">
+    <div class="about-text">
+        <h2 class="section-title">About Us</h2>
+        <p>Bazar Buddy helps you discover the best local deals, compare prices, and save time while shopping in your city. Our platform is designed to simplify your shopping experience with real-time updates and personalized recommendations.</p>
+    </div>
+</section>
+
+<section id="services" class="services container">
+    <h2 class="section-title">Our Services</h2>
+    <div class="service-card">
+        <h3>Price Comparison</h3>
+        <p>Compare prices across different stores in your city and never overpay again.</p>
+    </div>
+    <div class="service-card">
+        <h3>Deals & Discounts</h3>
+        <p>Get notified about exclusive deals, offers, and promotions near you.</p>
+    </div>
+    <div class="service-card">
+        <h3>Shopping Insights</h3>
+        <p>Receive recommendations and market trends based on your shopping preferences.</p>
+    </div>
+</section>
+
+<section id="pricing" class="pricing container">
+    <h2 class="section-title">Pricing Plans</h2>
+    <div class="pricing-card">
+        <h3>Basic</h3>
+        <p class="price">Free</p>
+        <p>Access to basic market deals and price comparison.</p>
+        <button class="btn">Sign Up</button>
+    </div>
+    <div class="pricing-card">
+        <h3>Premium</h3>
+        <p class="price">₹299/month</p>
+        <p>Get all deals, discounts, and personalized shopping insights.</p>
+        <button class="btn">Subscribe</button>
+    </div>
+</section>
+
+<section id="contact" class="contact container">
+    <h2 class="section-title">Contact Us</h2>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2025 Bazar Buddy. All Rights Reserved.</p>
+</footer>
+
+<script>
+    // Fade-in sections on scroll
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+</script>
+
+</body>
+</html>
